@@ -1,3 +1,5 @@
+name: Build bump tag
+
 on:
   push:
     branches:
