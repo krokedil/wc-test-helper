@@ -1,7 +1,7 @@
 import { expect, Locator, Page } from '@playwright/test';
 import { Address } from '../../types';
 
-export class CheckoutBlock {
+export default class CheckoutBlock {
     readonly page: Page;
 
     // -- Payment start --

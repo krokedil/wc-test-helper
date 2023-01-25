@@ -1,7 +1,6 @@
 import { APIRequestContext, Page } from '@playwright/test';
-import { GetWcApiClient } from '../../index';
 
-export class Cart {
+export default class Cart {
     readonly page: Page;
     readonly wcApiClient: APIRequestContext | undefined;
 

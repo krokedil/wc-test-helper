@@ -1,6 +1,6 @@
 import { Locator, Page } from '@playwright/test';
 
-export class AdminSingleOrder {
+export default class AdminSingleOrder {
     readonly page: Page;
     readonly orderId: number | string;
 
