@@ -1,4 +1,5 @@
 import { APIRequestContext, Page, request } from "@playwright/test";
+import { CreateCoupons, CreateProducts, CreateShippingZonesWithMethods, CreateTaxClassesWithRates, DeleteCoupons, DeleteProducts, DeleteShippingZones, DeleteTaxClasses, SetWcGeneralSettings } from "./setup";
 
 const {
     ADMIN_USERNAME,
@@ -44,4 +45,35 @@ export const GetSystemReportData = async (wcApiClient: APIRequestContext) => {
         process.env.PLUGIN_NAME = plugin.name;
         process.env.PLUGIN_VERSION = plugin.version;
     }
+}
+
+export const Setup = async (wcApiClient: APIRequestContext) => {
+    // Set all the WC general settings, map wcSettings to
+    await SetWcGeneralSettings(wcApiClient);
+
+    // Create all the tax classes and tax rates.
+    await CreateTaxClassesWithRates(wcApiClient);
+
+    // Create all the shipping zones.
+    await CreateShippingZonesWithMethods(wcApiClient);
+
+    // Create all the coupons.
+    await CreateCoupons(wcApiClient);
+
+    // Create all the products.
+    await CreateProducts(wcApiClient);
+}
+
+export const Teardown = async (wcApiClient: APIRequestContext) => {
+    // Delete all the products.
+    await DeleteProducts(wcApiClient);
+
+    // Delete all the coupons.
+    await DeleteCoupons(wcApiClient);
+
+    // Delete all the shipping zones.
+    await DeleteShippingZones(wcApiClient);
+
+    // Delete all the tax classes.
+    await DeleteTaxClasses(wcApiClient);
 }

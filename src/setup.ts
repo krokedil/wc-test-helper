@@ -1,7 +1,7 @@
 import { APIRequestContext } from "playwright-chromium";
 import { Coupon, Product, ShippingZone, TaxClass } from "./types";
 
-const wcSettings: { [key: string]: string } = {
+export const wcSettings: { [key: string]: string } = {
     woocommerce_price_num_decimals: "2",
     woocommerce_price_decimal_sep: ",",
     woocommerce_price_thousand_sep: ".",
@@ -12,7 +12,7 @@ const wcSettings: { [key: string]: string } = {
     woocommerce_terms_page_id: "3",
 };
 
-const TaxClasses: TaxClass[] = [
+export const TaxClasses: TaxClass[] = [
     {
         name: "25",
         rates: [
@@ -55,7 +55,7 @@ const TaxClasses: TaxClass[] = [
     },
 ];
 
-const products: Product[] = [
+export const products: Product[] = [
     {
         name: "Simple 25%",
         sku: "simple-25",
@@ -350,7 +350,7 @@ const products: Product[] = [
     },
 ];
 
-const coupons: Coupon[] = [
+export const coupons: Coupon[] = [
     {
         code: "fixed-10",
         amount: 10,
@@ -374,7 +374,7 @@ const coupons: Coupon[] = [
     }
 ];
 
-const shippingZones: ShippingZone[] = [
+export const shippingZones: ShippingZone[] = [
     {
         name: "Everywhere",
         methods: [
@@ -391,38 +391,7 @@ const shippingZones: ShippingZone[] = [
     },
 ];
 
-export const Setup = async (wcApiClient: APIRequestContext) => {
-    // Set all the WC general settings, map wcSettings to
-    await SetWcGeneralSettings(wcApiClient);
-
-    // Create all the tax classes and tax rates.
-    await CreateTaxClassesWithRates(wcApiClient);
-
-    // Create all the shipping zones.
-    await CreateShippingZonesWithMethods(wcApiClient);
-
-    // Create all the coupons.
-    await CreateCoupons(wcApiClient);
-
-    // Create all the products.
-    await CreateProducts(wcApiClient);
-}
-
-export const Teardown = async (wcApiClient: APIRequestContext) => {
-    // Delete all the products.
-    await DeleteProducts(wcApiClient);
-
-    // Delete all the coupons.
-    await DeleteCoupons(wcApiClient);
-
-    // Delete all the shipping zones.
-    await DeleteShippingZones(wcApiClient);
-
-    // Delete all the tax classes.
-    await DeleteTaxClasses(wcApiClient);
-}
-
-const SetWcGeneralSettings = async (wcApiClient: APIRequestContext) => {
+export const SetWcGeneralSettings = async (wcApiClient: APIRequestContext) => {
     await wcApiClient.post("settings/general/batch", {
         data: {
             update: Object.entries(wcSettings).map(([key, value]) => ({
@@ -433,7 +402,7 @@ const SetWcGeneralSettings = async (wcApiClient: APIRequestContext) => {
     });
 }
 
-const CreateTaxClassesWithRates = async (wcApiClient: APIRequestContext) => {
+export const CreateTaxClassesWithRates = async (wcApiClient: APIRequestContext) => {
     await Promise.all(
         TaxClasses.map(async (tax_class) => {
             const response = await wcApiClient.post("taxes/classes", {
@@ -459,7 +428,7 @@ const CreateTaxClassesWithRates = async (wcApiClient: APIRequestContext) => {
     );
 }
 
-const CreateShippingZonesWithMethods = async (wcApiClient: APIRequestContext) => {
+export const CreateShippingZonesWithMethods = async (wcApiClient: APIRequestContext) => {
     await Promise.all(
         shippingZones.map(async (zone) => {
             const response = await wcApiClient.post("shipping/zones", {
@@ -487,7 +456,7 @@ const CreateShippingZonesWithMethods = async (wcApiClient: APIRequestContext) =>
     );
 }
 
-const CreateCoupons = async (wcApiClient: APIRequestContext) => {
+export const CreateCoupons = async (wcApiClient: APIRequestContext) => {
     await wcApiClient.post("coupons/batch", {
         data: {
             create: coupons.map((coupon) => ({
@@ -500,7 +469,7 @@ const CreateCoupons = async (wcApiClient: APIRequestContext) => {
     });
 }
 
-const CreateProducts = async (wcApiClient: APIRequestContext) => {
+export const CreateProducts = async (wcApiClient: APIRequestContext) => {
     // First create all products.
     const response = await wcApiClient.post("products/batch", {
         data: {
@@ -546,7 +515,7 @@ const CreateProducts = async (wcApiClient: APIRequestContext) => {
     );
 }
 
-const DeleteProducts = async (wcApiClient: APIRequestContext) => {
+export const DeleteProducts = async (wcApiClient: APIRequestContext) => {
     // Get a list of all the products with the skus we created.
     const response = await wcApiClient.get("products", {
         params: {
@@ -565,7 +534,7 @@ const DeleteProducts = async (wcApiClient: APIRequestContext) => {
     });
 }
 
-const DeleteCoupons = async (wcApiClient: APIRequestContext) => {
+export const DeleteCoupons = async (wcApiClient: APIRequestContext) => {
     // Get a list of all the coupons with the codes we created.
     const response = await wcApiClient.get("coupons", {
         params: {
@@ -584,7 +553,7 @@ const DeleteCoupons = async (wcApiClient: APIRequestContext) => {
     });
 }
 
-const DeleteShippingZones = async (wcApiClient: APIRequestContext) => {
+export const DeleteShippingZones = async (wcApiClient: APIRequestContext) => {
     // Get a list of all the shipping zones with the names we created.
     const response = await wcApiClient.get("shipping/zones", {
         params: {
@@ -603,7 +572,7 @@ const DeleteShippingZones = async (wcApiClient: APIRequestContext) => {
     });
 }
 
-const DeleteTaxClasses = async (wcApiClient: APIRequestContext) => {
+export const DeleteTaxClasses = async (wcApiClient: APIRequestContext) => {
     // Get a list of all the tax classes with the names we created.
     const response = await wcApiClient.get("taxes/classes", {
         params: {
