@@ -7,7 +7,7 @@
     "url": "git+https://github.com/krokedil/wc-test-helper.git"
   },
   "publishConfig": {
-    "krokedil:registry": "https://npm.pkg.github.com"
+    "krokedil:registry": "https://npm.pkg.github.com/"
   },
   "types": "./lib/cjs/types/index.d.ts",
   "main": "./lib/cjs/index.js",
