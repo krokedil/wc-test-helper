@@ -24,7 +24,7 @@ jobs:
               uses: actions/checkout@v2
               with:
                 fetch-depth: 0
-                token: "${{ secrets.GITHUB_TOKEN }}"
+                token: "${{ secrets.GH_TOKEN }}"
             - id: cz
               name: Bump package
               uses: commitizen-tools/commitizen-action@master
