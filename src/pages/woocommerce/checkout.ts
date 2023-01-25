@@ -1,7 +1,7 @@
 import { expect, Locator, Page } from '@playwright/test';
 import { Address } from '../../types';
 
-export class Checkout {
+export default class Checkout {
     readonly page: Page;
 
     // -- Coupon form starts --

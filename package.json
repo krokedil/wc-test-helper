@@ -1,6 +1,6 @@
 {
   "name": "@krokedil/wc-test-helper",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "A helper package for Krokedils E2E tests using Playwright. Contains some page object models and helper functions to setup a test configuration with WooCommerce.",
   "repository": {
     "type": "git",
@@ -19,7 +19,8 @@
     "build": "npm run clean && npm run build:esm && npm run build:cjs",
     "build:esm": "tsc -p ./tsconfig.esm.json && mv lib/esm/index.js lib/esm/index.mjs",
     "build:cjs": "tsc -p ./tsconfig.cjs.json",
-    "prepack": "npm run build"
+    "prepack": "npm run build",
+    "commit": "cz"
   },
   "keywords": [],
   "author": "",
@@ -45,6 +46,12 @@
     "playwright-chromium": "^1.29.2"
   },
   "devDependencies": {
-    "@types/node": "^18.11.18"
+    "@types/node": "^18.11.18",
+    "cz-conventional-changelog": "^3.3.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

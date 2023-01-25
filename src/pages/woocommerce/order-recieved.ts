@@ -1,6 +1,6 @@
 import { APIRequestContext, Locator, Page } from '@playwright/test';
 
-export class OrderRecieved {
+export default class OrderRecieved {
     readonly page: Page;
     readonly wcApiClient: APIRequestContext;
 
