@@ -1,6 +1,9 @@
 import { APIRequestContext, Page, request } from "@playwright/test";
 import { CreateCoupons, CreateProducts, CreateShippingZonesWithMethods, CreateTaxClassesWithRates, DeleteCoupons, DeleteProducts, DeleteShippingZones, DeleteTaxClasses, SetWcGeneralSettings } from "./setup";
 
+export const pages = require('./pages');
+export const reporters = require('./reporters');
+
 const {
     ADMIN_USERNAME,
     ADMIN_PASSWORD,
