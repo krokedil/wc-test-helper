@@ -1,13 +1,13 @@
 {
-  "name": "wc-test-helper",
+  "name": "@krokedil/wc-test-helper",
   "version": "0.1.0",
   "description": "A helper package for Krokedils E2E tests using Playwright. Contains some page object models and helper functions to setup a test configuration with WooCommerce.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/krokedil/wc-test-helper.git"
+    "url": "https://github.com/krokedil/wc-test-helper.git"
   },
   "publishConfig": {
-    "krokedil:registry": "https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com/"
   },
   "types": "./lib/cjs/types/index.d.ts",
   "main": "./lib/cjs/index.js",
