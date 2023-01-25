@@ -1,6 +1,6 @@
 {
   "name": "@krokedil/wc-test-helper",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A helper package for Krokedils E2E tests using Playwright. Contains some page object models and helper functions to setup a test configuration with WooCommerce.",
   "repository": {
     "type": "git",
