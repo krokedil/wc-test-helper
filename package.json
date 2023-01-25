@@ -42,9 +42,7 @@
     "@slack/types": "^2.8.0",
     "@slack/webhook": "^6.1.0",
     "playwright": "^1.29.2",
-    "playwright-chromium": "^1.29.2"
-  },
-  "devDependencies": {
+    "playwright-chromium": "^1.29.2",
     "@types/node": "^18.11.18"
   }
 }
