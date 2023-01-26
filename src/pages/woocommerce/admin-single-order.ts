@@ -69,17 +69,17 @@ export default class AdminSingleOrder {
 
         // Refund all fees.
         for (const fee of order.fee_lines) {
-            await this.refundLineTotalInput(fee.id).fill(fee.total);
+            await this.refundLineTotalInput(fee.id).fill(fee.total.replace('.', ','));
             for (const tax of fee.taxes) {
-                await this.refundLineTaxInput(fee.id, tax.id).fill(tax.total);
+                await this.refundLineTaxInput(fee.id, tax.id).fill(tax.total.replace('.', ','));
             }
         }
 
         // Refund all shipping lines.
         for (const shipping of order.shipping_lines) {
-            await this.refundLineTotalInput(shipping.id).fill(shipping.total);
+            await this.refundLineTotalInput(shipping.id).fill(shipping.total.replace('.', ','));
             for (const tax of shipping.taxes) {
-                await this.refundLineTaxInput(shipping.id, tax.id).fill(tax.total);
+                await this.refundLineTaxInput(shipping.id, tax.id).fill(tax.total.replace('.', ','));
             }
         }
 
@@ -105,23 +105,23 @@ export default class AdminSingleOrder {
         await this.refundButton.click();
 
         for (const lineItem of order.line_items) {
-            await this.refundLineTotalInput(lineItem.id).fill((lineItem.total / 2).toFixed(2));
+            await this.refundLineTotalInput(lineItem.id).fill((lineItem.total / 2).toFixed(2).toString().replace('.', ','));
             for (const tax of lineItem.taxes) {
-                await this.refundLineTaxInput(lineItem.id, tax.id).fill((tax.total / 2).toFixed(2));
+                await this.refundLineTaxInput(lineItem.id, tax.id).fill((tax.total / 2).toFixed(2).toString().replace('.', ','));
             }
         }
 
         for (const fee of order.fee_lines) {
-            await this.refundLineTotalInput(fee.id).fill((fee.total / 2).toFixed(2));
+            await this.refundLineTotalInput(fee.id).fill((fee.total / 2).toFixed(2).toString().replace('.', ','));
             for (const tax of fee.taxes) {
-                await this.refundLineTaxInput(fee.id, tax.id).fill((tax.total / 2).toFixed(2));
+                await this.refundLineTaxInput(fee.id, tax.id).fill((tax.total / 2).toFixed(2).toString().replace('.', ','));
             }
         }
 
         for (const shipping of order.shipping_lines) {
-            await this.refundLineTotalInput(shipping.id).fill((shipping.total / 2).toFixed(2));
+            await this.refundLineTotalInput(shipping.id).fill((shipping.total / 2).toFixed(2).toString().replace('.', ','));
             for (const tax of shipping.taxes) {
-                await this.refundLineTaxInput(shipping.id, tax.id).fill((tax.total / 2).toFixed(2));
+                await this.refundLineTaxInput(shipping.id, tax.id).fill((tax.total / 2).toFixed(2).toString().replace('.', ','));
             }
         }
 
