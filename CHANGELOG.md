@@ -1,3 +1,9 @@
+## v1.0.2 (2023-02-06)
+
+### Fix
+
+- **checkout**: fix locator for Coupon form button
+
 ## v1.0.1 (2023-01-26)
 
 ### Fix
