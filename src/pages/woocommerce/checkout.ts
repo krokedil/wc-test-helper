@@ -56,7 +56,7 @@ export default class Checkout {
         this.page = page;
 
         this.couponForm = page.locator('form[name="checkout_coupon"]');
-        this.couponToggle = this.couponForm.locator('a.showcoupon');
+        this.couponToggle = this.page.locator('a.showcoupon');
         this.couponCode = this.couponForm.locator('#coupon_code');
         this.applyCouponButton = this.couponForm.locator('[name="apply_coupon"]');
 
