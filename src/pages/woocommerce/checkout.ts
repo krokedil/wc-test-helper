@@ -5,7 +5,6 @@ export default class Checkout {
     readonly page: Page;
 
     // -- Coupon form starts --
-    readonly couponForm: Locator;
     readonly couponToggle: Locator;
     readonly couponCode: Locator;
     readonly applyCouponButton: Locator;
@@ -55,10 +54,9 @@ export default class Checkout {
     constructor(page: Page) {
         this.page = page;
 
-        this.couponForm = page.locator('form[name="checkout_coupon"]');
         this.couponToggle = this.page.locator('a.showcoupon');
-        this.couponCode = this.couponForm.locator('#coupon_code');
-        this.applyCouponButton = this.couponForm.locator('[name="apply_coupon"]');
+        this.couponCode = this.page.locator('#coupon_code');
+        this.applyCouponButton = this.page.locator('[name="apply_coupon"]');
 
         this.orderReview = page.locator('#order_review');
         this.shippingMethods = this.orderReview.locator('#shipping_methods');
