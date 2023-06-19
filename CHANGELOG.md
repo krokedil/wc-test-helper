@@ -1,3 +1,9 @@
+## v1.0.4 (2023-06-19)
+
+### Fix
+
+- **checkout blocks**: update the locator for billing phone field
+
 ## v1.0.3 (2023-02-06)
 
 ### Fix
