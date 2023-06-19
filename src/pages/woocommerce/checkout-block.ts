@@ -49,7 +49,7 @@ export default class CheckoutBlock {
         this.billingAddress2 = this.checkoutForm.locator('#billing-address_2');
         this.billingCity = this.checkoutForm.locator('#billing-city');
         this.billingPostcode = this.checkoutForm.locator('#billing-postcode');
-        this.billingPhone = this.checkoutForm.locator('#phone');
+        this.billingPhone = this.checkoutForm.locator('#billing-phone');
 
         this.shippingFirstName = this.checkoutForm.locator('#shipping-first_name');
         this.shippingLastName = this.checkoutForm.locator('#shipping-last_name');
