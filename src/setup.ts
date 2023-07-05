@@ -130,6 +130,7 @@ export const products: Product[] = [
         sku: "simple-virtual-downloadable-25",
         type: "simple",
         regular_price: 99.99,
+        tax_class: "25",
         categories: ["Simple", "Virtual", "Downloadable"],
         tags: ["Simple", "Virtual", "Downloadable"],
         images: [
@@ -161,7 +162,7 @@ export const products: Product[] = [
         sku: "simple-virtual-downloadable-06",
         type: "simple",
         regular_price: 84.49,
-        tax_class: "25",
+        tax_class: "06",
         categories: ["Simple", "Virtual", "Downloadable"],
         tags: ["Simple", "Virtual", "Downloadable"],
         images: [
@@ -177,7 +178,7 @@ export const products: Product[] = [
         sku: "simple-virtual-downloadable-00",
         type: "simple",
         regular_price: 9.99,
-        tax_class: "25",
+        tax_class: "00",
         categories: ["Simple", "Virtual", "Downloadable"],
         tags: ["Simple", "Virtual", "Downloadable"],
         images: [
